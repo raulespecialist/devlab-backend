@@ -48,7 +48,7 @@ class Company(models.Model):
         return self.name_company
 
 # Model of Comments
-class Comments(models.Model):
+class Comment(models.Model):
     owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     rating = models.IntegerField()
