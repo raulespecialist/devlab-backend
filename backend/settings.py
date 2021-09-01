@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'directory',
     'pos',
+    'mkt',
 ]
 
 MIDDLEWARE = [

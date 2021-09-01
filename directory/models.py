@@ -23,19 +23,24 @@ class UserProfile(models.Model):
 
 # Model of Companies
 class Company(models.Model):
-    owner = models.ForeignKey(UserProfile, on_delete=models.SET_DEFAULT, default='robot')
+    owner = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=1)
     name_company = models.CharField(max_length=50, blank=False, default='')
     manager_fname = models.CharField(max_length=30, blank=False, default='')
     manager_lname = models.CharField(max_length=30, blank=True, default='')
+    address = models.CharField(max_length=250, blank=True, default='')
+    city = models.CharField(max_length=30, blank=True, default='')
+    state = models.CharField(max_length=30, blank=True, default='')
+    country = models.CharField(max_length=30, blank=True, default='mx')
     fb_url = models.CharField(max_length=30, blank=True, default='')
     tw_url = models.CharField(max_length=30, blank=True, default='')
     rfc = models.CharField(max_length=20, blank=True, default='')
     scope = models.CharField(max_length=50, blank=True, default='')
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True, default='') # validators should be a list
-    email = models.EmailField(max_length=70,blank=False,unique=True)
+    email = models.EmailField(max_length=70,blank=False)
     web = models.CharField(max_length=200, blank=True, default='')
     description = models.TextField(blank=True, default='')
+    products = models.TextField(blank=True, default='')
     private = models.BooleanField(blank=True, default=False)
     newsletter = models.BooleanField(default=True)
     score = models.IntegerField(default=0)
