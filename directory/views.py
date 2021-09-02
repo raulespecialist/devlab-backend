@@ -1,11 +1,26 @@
 import os
 import csv
+import random
+from django.utils import timezone
 from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
 from .models import Company
 
 # Create your views here.
+def list_companies(request):
+    #companies = Company.objects.all().filter(
+    #    published_date__lte=timezone.now()).order_by('published_date')
+    items = list(Company.objects.all())
+    companies = random.sample(items, 5000)
+    numero = Company.objects.all().count()
+    print(numero)
+    return render(request, 'directory/list_companies.amp.html', {'companies': companies,})
+
+def compani(request, num):
+    company = Company.objects.get(id=num)
+    return render(request, 'directory/company.amp.html', {'company': company,})
+
 def procesar(request):
     print('funciona aqui')
     filepath = os.path.join(settings.BASE_DIR, 'limpiasindupli2.csv')
