@@ -26,7 +26,7 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
   <script async="" custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
   <script async="" custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   <script async="" custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-  
+  <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
   
 </head>
 <body class="amp-mode-mouse" style="opacity: 1; visibility: visible; animation: 0s ease 0s 1 normal none running none;">
@@ -48,12 +48,13 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
 						<a class="nav-link mbr-bold link text-black display-7" href="#header2-19">
 							About us</a>
 					</li><li class="nav-item">
-						<a class="nav-link mbr-bold link text-black display-7" href="#features1-2">
+						<a id="PseudoAnchorElement2"
+  on="tap:services.scrollTo(duration=300)" class="nav-link mbr-bold link text-black display-7 SmoothScrollElement" rel="nofollow">
 							Features</a>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link mbr-bold link text-black display-7" href="#contacts7-12">
+						<a class="nav-link mbr-bold link text-black display-7" href="mailto:hi@devlab.world" target="_blank">
 							Contacts</a>
 					</li></ul>
 				<!-- NAVBAR ITEMS END -->
@@ -88,12 +89,13 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
 						<a class="nav-link mbr-bold link text-black display-7" href="#header2-19">
 							About us</a>
 					</li><li class="nav-item">
-						<a class="nav-link mbr-bold link text-black display-7" href="#features1-2">
+						<a id="PseudoAnchorElement1"
+  on="tap:services.scrollTo(duration=300)" class="nav-link mbr-bold link text-black display-7 SmoothScrollElement" rel="nofollow">
 							Features</a>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link mbr-bold link text-black display-7" href="#contacts7-12">
+						<a class="nav-link mbr-bold link text-black display-7" href="mailto:hi@devlab.world" target="_blank">
 							Contacts</a>
 					</li></ul>
 				<!-- NAVBAR ITEMS END -->
@@ -118,7 +120,9 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
                 <h2 class="mbr-section-subtitle mbr-fonts-style mbr-pt-3 display-2">{{ company.scope }}</h2>
                 
                 <div class="mbr-section-btn mbr-pt-4">
-                    <a class="btn-primary btn display-7">Learn more...</a>
+                    <a id="PseudoAnchorElement"
+  on="tap:features3-1l.scrollTo(duration=300)"
+  class="btn-primary btn display-7 SmoothScrollElement" rel="nofollow">Learn more...</a>
                 </div>
             </div>
         </div>
@@ -162,7 +166,7 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
                 </div>
             </div>
 
-            <div class="card mbr-col-sm-12 last-child">
+            <div class="card mbr-col-sm-12 last-child" id="services">
                 <div class="card-wrapper mbr-flex mbr-row-reverse">
                     <div class="card-img mbr-flex mbr-col-md-12 mbr-col-lg-6">
                         <amp-img src="https://app.8b.io/app/themes/webamp/projects/company/assets/images/rawpixel-1071146-unsplash.jpg" layout="responsive" width="554.6666666666666" height="416" alt="" class="placeholder-loader i-amphtml-element i-amphtml-layout-responsive i-amphtml-layout-size-defined i-amphtml-built i-amphtml-layout" i-amphtml-layout="responsive"><i-amphtml-sizer slot="i-amphtml-svc" style="padding-top: 75%;"></i-amphtml-sizer>
@@ -175,11 +179,11 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
                         <img decoding="async" alt="" src="https://app.8b.io/app/themes/webamp/projects/company/assets/images/rawpixel-1071146-unsplash.jpg" class="i-amphtml-fill-content i-amphtml-replaced-content"></amp-img>
                     </div>
                     <div class="card-box mbr-m-auto">
-                        <h3 class="card-title mbr-bold mbr-fonts-style display-5">What are seasonal promotions?</h3>
-                        <h4 class="card-subtitle mbr-pt-3 mbr-fonts-style mbr-bold display-7">Common types of holidays</h4>
-                        <p class="card-text mbr-fonts-style mbr-pt-2 display-7">There are more opportunites for sales, not only Black Friday and Cyber Monday,</p>
+                        <h3 class="card-title mbr-bold mbr-fonts-style display-5">We can help you?</h3>
+                        <h4 class="card-subtitle mbr-pt-3 mbr-fonts-style mbr-bold display-7">Some of our skills</h4>
+                        <p class="card-text mbr-fonts-style mbr-pt-2 display-7">DevOp, Security, Web Apps, Native Apps, Machine Learning, AI, IoT, Blockchain, Data Scraping</p>
                         <div class="card-btn mbr-section-btn mbr-pt-2">
-                            <a class="btn btn-primary display-7" href="#">Read More</a>
+                            <a class="btn btn-primary display-7" href="https://devlab.world/" rel="dofollow">Development</a>
                         </div>
                     </div>
                 </div>
@@ -198,26 +202,13 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
             <h3 class="mbr-section-title mbr-fonts-style mbr-bold align-center display-2">Reviews</h3>
         </div>
         <div class="mbr-row mbr-jc-c mbr-pt-4">
+        {% for compext in companies %}
             <div class="card mbr-col-sm-12 mbr-col-md-6 md-pb mbr-col-lg-3">
-                <p class="review mbr-fonts-style display-7">Our company is really big, and so we have many employees, thank you for your HR analysis, now we have a hiring strategy</p>
-                <p class="name mbr-fonts-style mbr-bold mbr-pt-3 display-7">- Susan Crossman</p>
-                <p class="subtitle mbr-fonts-style mbr-bold mbr-pt-1 display-7">Manager</p>
+                <p class="review mbr-fonts-style display-7">{% if compext.products|length <= 10 %}{{ compext.scope }}{% else %}{{ compext.products }}{% endif %}</p>
+                <a class="name mbr-fonts-style mbr-bold mbr-pt-3 display-7" href="https://directory.devlab.world/company/{{ compext.id }}/" rel="dofollow">{{ compext.name_company }}</a>
+                <p class="subtitle mbr-fonts-style mbr-bold mbr-pt-1 display-7">{{ compext.city }}, {{ compext.state }}, México </p>
             </div>
-            <div class="card mbr-col-sm-12 mbr-col-md-6 md-pb mbr-col-lg-3">
-                <p class="review mbr-fonts-style display-7">The result of their work was a workforce planning summit where we've got more that twenty effective action plans.</p>
-                <p class="name mbr-fonts-style mbr-bold mbr-pt-3 display-7">- Adrian Carey</p>
-                <p class="subtitle mbr-fonts-style mbr-bold mbr-pt-1 display-7">Manager</p>
-            </div>
-            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-3">
-                <p class="review mbr-fonts-style display-7">We use their services to hire new employees: always accurate and precise tests, their team is polite and punctual.</p>
-                <p class="name mbr-fonts-style mbr-bold mbr-pt-3 display-7">- Jennifer Bawerman</p>
-                <p class="subtitle mbr-fonts-style mbr-bold mbr-pt-1 display-7">Support</p>
-            </div>
-            <div class="card mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-3">
-                <p class="review mbr-fonts-style display-7">The result of their work was a workforce planning summit where we've got more that twenty effective action plans.</p>
-                <p class="name mbr-fonts-style mbr-bold mbr-pt-3 display-7">- Adrian Carey</p>
-                <p class="subtitle mbr-fonts-style mbr-bold mbr-pt-1 display-7">Director</p>
-            </div>
+        {% endfor %}
         </div>
     </div>
 </section>
@@ -233,10 +224,10 @@ body{font-family: Didact Gothic;}blockquote{border-color: #5b686b;}div[submit-su
             
             
         <p class="mbr-text fLink mbr-px-1 mbr-white"><a href="#features3-3" class="text-white">
-                Our Work</a></p><p class="mbr-text fLink mbr-px-1 mbr-white"><a href="#team1-5" class="text-white">Teams</a></p><p class="mbr-text fLink mbr-px-1 mbr-white"><a href="#contacts7-12" class="text-white">
+                Our Work</a></p><p class="mbr-text fLink mbr-px-1 mbr-white"><a href="#team1-5" class="text-white">Teams</a></p><p class="mbr-text fLink mbr-px-1 mbr-white"><a href="mailto:hi@devlab.world" target="_blank" class="text-white">
                 Contacts</a></p></div>
         <div class="copyright mbr-px-2 mbr-flex mbr-jc-c">
-            <p class="mbr-text mbr-fonts-style mbr-white align-center display-7">© <span>2021</span> <span>meloadik</span></p>
+            <p class="mbr-text mbr-fonts-style mbr-white align-center display-7">© <span>2021</span> <span>DevLab.world</span></p>
         </div>
     </div>
 </section>

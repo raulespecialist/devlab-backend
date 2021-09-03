@@ -19,7 +19,9 @@ def list_companies(request):
 
 def compani(request, num):
     company = Company.objects.get(id=num)
-    return render(request, 'directory/company.amp.html', {'company': company,})
+    liste = [random.randint(513, 111133) for p in range(0, 4)]
+    companies = Company.objects.filter(pk__in=liste)
+    return render(request, 'directory/company.amp.html', {'company': company, 'companies': companies,})
 
 def procesar(request):
     print('funciona aqui')
