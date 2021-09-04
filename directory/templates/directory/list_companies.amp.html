@@ -13,7 +13,7 @@
   <body>
     <h1 id="hello">Directory of Companies!</h1>
     {% for company in companies %}
-    <a href="https://directory.devlab.world/company/{{ company.id }}/" rel="dofollow">{{ company.name_company }}</a>
+    <a href="/company/{{ company.id }}/" rel="dofollow">{{ company.name_company }}</a>
     {% endfor %}
   </body>
 </html>
