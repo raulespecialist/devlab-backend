@@ -1,0 +1,51 @@
+{% extends "pos/base.html" %}
+{% block content %}
+<h1>Catalogue</h1>
+<div class="row" id="products">
+    <div class="col col-xs-12 nes-container with-title">
+        <h3 class="title">Products {{ products|length }} | Services {{ services|length }}</h3>
+            <input class="search" placeholder="Search" />
+            <button class="sort" data-sort="name">
+                Sort by name
+            </button>
+            <div class="list">
+        {% for product in proserv %}
+            <div class="nes-container is-dark is-rounded col-md-12 col-xs-12 itempos">
+            {% if product.image %}
+            <picture style="float: right;margin: 0 0 0 1px;">
+                <source srcset="{{ product.image.url }}" media="(min-width: 10px)"></source> 
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" align="right" width="50px" height="50px">
+            </picture>
+
+            {% endif %}
+            <p class="name">{{ product.name }}</p>
+            
+            <p class="">{{ product.sale_price }}</p>
+            <p class="description">{{ product.description }}</p>
+            
+            </div>
+        {% endfor %}
+            </div>
+    </div>
+    <!--
+    <div class="col col-xs-12 nes-container is-dark with-title">
+        <h3 class="title">Services {{ services|length }}</h3>
+        {% for service in services %}
+            <div class="nes-container is-rounded">
+            <h6>service {{ service.name }}</h6>
+            <p class="">price: {{ service.price }}</p>
+            <p class="">description: {{ service.description }}</p>
+            {% if service.image %}
+            <picture>
+                <source srcset="{{ service.image.url }}" media="(min-width: 600px)"></source>
+                <img src="{{ service.image.url }}" alt="{{ product.name }} align="right">
+            </picture>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    -->
+
+</div>
+
+{% endblock %}

@@ -38,14 +38,14 @@ class Branch(models.Model):
 class Product(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50, blank=False, default='')
-    code = models.IntegerField(max_length=50, blank=False, default='')
-    purchase_price = models.DecimalField(max_digits=2, decimal_places=2, max_length=50, blank=False, default='')
-    sale_price = models.DecimalField(max_digits=2, decimal_places=2, max_length=50, blank=False, default='')
+    code = models.IntegerField(blank=False, default='')
+    purchase_price = models.DecimalField(max_digits=8, decimal_places=2, max_length=50, blank=False, default='')
+    sale_price = models.DecimalField(max_digits=8, decimal_places=2, max_length=50, blank=False, default='')
     description = models.TextField(blank=False, default='')
-    amount = models.IntegerField(max_length=6, blank=False, default='')
+    amount = models.IntegerField(blank=False, default='')
 
     def user_directory_path(instance, filename):
-        return 'user_{0}/{1}'.format(instance.user.id, filename)
+        return 'products/user_{0}/{1}'.format(instance.owner.id, filename)
     image = models.ImageField('image product',
                                upload_to=user_directory_path,
                                null=True,
@@ -63,13 +63,12 @@ class Product(models.Model):
 class Service(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50, blank=False, default='')
-    code = models.IntegerField(max_length=50, blank=False, default='')
-    sale_price = models.DecimalField(max_digits=2, decimal_places=2, max_length=50, blank=False, default='')
+    sale_price = models.DecimalField(max_digits=8, decimal_places=2, max_length=50, blank=False, default='')
     description = models.TextField(blank=False, default='')
-    amount = models.IntegerField(max_length=6, blank=False, default='')
+    #amount = models.IntegerField(max_length=6, blank=False, default='') #algo para citas
 
     def user_directory_path(instance, filename):
-        return 'user_{0}/{1}'.format(instance.user.id, filename)
+        return 'static/products/user_{0}/{1}'.format(instance.owner.id, filename)
     image = models.ImageField('image product',
                                upload_to=user_directory_path,
                                null=True,
